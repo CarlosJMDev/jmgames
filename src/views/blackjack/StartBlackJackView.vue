@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import PageHeader from '@/components/PageHeader.vue'
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const totalMoney = ref(1000)
 const wager = ref(0)
 
-const bet = (chip) => {
+const bet = (chip: number) => {
   if (chip === 1 && totalMoney.value >= 5) {
     wager.value += 5
     totalMoney.value -= 5
@@ -28,14 +29,9 @@ const bet = (chip) => {
 </script>
 
 <template>
-  <div class="blackjack-menu">
-    <header class="logo">
-      <RouterLink :to="{ name: 'home' }" class="link">
-        <h1>Games<span>.Vue.js</span></h1>
-      </RouterLink>
-    </header>
-
-    <main class="game-menu">
+  <div class="bg-[#184132] absolute w-screen h-screen pt-32 -z-50">
+    <PageHeader />
+    <main class="flex flex-col justify-center items-center">
       <h2>Blackjack</h2>
       <p>Please, select your bet to start play</p>
       <div class="chips">
@@ -51,7 +47,7 @@ const bet = (chip) => {
         <p>{{ totalMoney }}</p>
       </div>
       <br />
-      <RouterLink :to="{ name: 'playblackjack', params: { wager: wager } }">
+      <RouterLink :to="{ name: 'blackjackgame', params: { wager: wager } }">
         <button class="btn">Play</button>
       </RouterLink>
     </main>

@@ -1,38 +1,37 @@
 <script setup lang="ts">
+import PageHeader from '@/components/PageHeader.vue'
 import GameCard from '../components/GameCard.vue'
 </script>
 
 <template>
-  <header class="absolute top-0 bg-green-500 w-screen flex justify-center text-white font-bold">
-    <RouterLink :to="{ name: 'home' }" class="link">
-      <h1>JMGames</h1>
-    </RouterLink>
-  </header>
-  <div class="w-screen h-full bg-gray-500 flex justify-center items-center gap-2 flex-col pt-12">
-    <GameCard
-      title="Blackjack"
-      description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
-      image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
-      link="blackjack"
-    />
-    <GameCard
-      title="Blackjack"
-      description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
-      image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
-      link="blackjack"
-    />
-    <GameCard
-      title="Blackjack"
-      description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
-      image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
-      link="blackjack"
-    />
-    <GameCard
-      title="Blackjack"
-      description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
-      image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
-      link="blackjack"
-    />
+  <div class="w-screen h-dvh bg-gray-500 flex justify-center items-center gap-2 flex-col pt-12">
+    <PageHeader />
+    <div class="flex md:grid md:grid-cols-2 gap-6">
+      <GameCard
+        title="Blackjack"
+        description="Win the game by obtaining  a score higher than the other player and with a value less than or equal to 21"
+        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        link="blackjack"
+      />
+      <GameCard
+        title="Blackjack"
+        description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
+        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        link="blackjack"
+      />
+      <GameCard
+        title="Blackjack"
+        description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
+        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        link="blackjack"
+      />
+      <GameCard
+        title="Blackjack"
+        description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
+        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        link="blackjack"
+      />
+    </div>
   </div>
   <!--
 
@@ -79,4 +78,9 @@ import GameCard from '../components/GameCard.vue'
   </main> -->
 </template>
 
-<style></style>
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+}
+</style>

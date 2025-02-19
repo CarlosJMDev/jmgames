@@ -1,1 +1,90 @@
 @import 'tailwindcss';
+
+.btn {
+  @apply w-36 h-10 leading-[42px] text-white font-bold cursor-pointer transition-all duration-[0.3s] ease-[ease] relative inline-block shadow-[inset_2px_2px_2px_0px_rgba(255,255,255,0.5),7px_7px_20px_0px_rgba(0,0,0,0.1),4px_4px_5px_0px_rgba(0,0,0,0.1)] overflow-hidden rounded-[5px] border-[none] bg-linear-to-b from-[#00acee] to-[#027efb];
+}
+
+.btn:hover,
+.isDisabled {
+  background: rgb(0, 3, 255);
+  background: linear-gradient(0deg, rgba(0, 3, 255, 1) 0%, rgba(2, 126, 251, 1) 100%);
+}
+
+.btn:before,
+.btn:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+
+.btn:before {
+  height: 0%;
+  width: 2px;
+}
+
+.btn:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btn:hover,
+.isDisabled {
+  color: rgba(2, 126, 251, 1);
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn:before,
+.btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: rgba(2, 126, 251, 1);
+  box-shadow:
+    -1px -1px 5px 0px #fff,
+    7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+
+.btn:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+.btn:hover:before,
+.btn:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+.isDisabled:before,
+.isDisabled:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 100%;
+  background: rgba(2, 126, 251, 1);
+  box-shadow:
+    -1px -1px 5px 0px #fff,
+    7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+}
+
+.isDisabled:after {
+  top: 100%;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+}
