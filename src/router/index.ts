@@ -19,6 +19,11 @@ const router = createRouter({
       name: 'blackjackgame',
       component: () => import('../views/blackjack/BlackJackGameView.vue'),
     },
+    {
+      path: '/pokemon',
+      name: 'pokemon',
+      component: () => import('../views/pokemon/StartPokemonView.vue'),
+    },
   ],
 })
 

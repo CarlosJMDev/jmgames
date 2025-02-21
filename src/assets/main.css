@@ -9,6 +9,48 @@
   background: rgb(0, 3, 255);
   background: linear-gradient(0deg, rgba(0, 3, 255, 1) 0%, rgba(2, 126, 251, 1) 100%);
 }
+.btn:before,
+.btn:after {
+  @apply absolute content-[''] transition-all duration-[0.3s] ease-[ease] right-0 top-0 content-[''] absolute h-0.5 w-0 shadow-[-1px_-1px_5px_0px_#fff,7px_7px_20px_0px_#0003,4px_4px_5px_0px_#0002] transition-[400ms] duration-[ease] ease-[all] right-0 top-0;
+  background: rgba(2, 126, 251, 1);
+}
+.btn:before {
+  @apply h-[0%] w-0.5;
+}
+.btn:hover,
+.isDisabled {
+  @apply text-[rgba(2,126,251,1)] shadow-none;
+  background: transparent;
+}
+.btn:before,
+.btn:after {
+  background: rgba(2, 126, 251, 1);
+}
+.btn:after {
+  @apply left-0 right-[inherit] top-[inherit] bottom-0;
+}
+.btn:hover:before,
+.btn:hover:after {
+  @apply w-full transition-[800ms] duration-[ease] ease-[all];
+}
+.isDisabled:before,
+.isDisabled:after {
+  @apply content-[''] absolute h-0.5 w-full shadow-[-1px_-1px_5px_0px_#fff,7px_7px_20px_0px_#0003,4px_4px_5px_0px_#0002] right-0 top-0;
+  background: rgba(2, 126, 251, 1);
+}
+.isDisabled:after {
+  @apply top-full;
+}
+.isDisabled {
+  @apply cursor-not-allowed;
+}
+
+/* 
+.btn:hover,
+.isDisabled {
+  background: rgb(0, 3, 255);
+  background: linear-gradient(0deg, rgba(0, 3, 255, 1) 0%, rgba(2, 126, 251, 1) 100%);
+}
 
 .btn:before,
 .btn:after {
@@ -87,4 +129,4 @@
 
 .isDisabled {
   cursor: not-allowed;
-}
+} */
