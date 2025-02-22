@@ -1,0 +1,162 @@
+<script setup lang="ts">
+import { reactive, ref, onMounted } from 'vue'
+import { useBlackjackStore } from '../../stores/blackjack'
+const { createDeck, requestCard, cardValue } = useBlackjackStore()
+
+const props = defineProps({
+  totalMoney: {
+    type: Number,
+    required: true,
+  },
+  bet: {
+    type: Number,
+    required: true,
+  },
+})
+
+const isDoubleBet = ref(false)
+
+const playerPoints = ref(0)
+const computerPoints = ref(0)
+
+const playerCards = ref([])
+const computerCards = ref([])
+
+const playerWin = ref(0)
+
+const btnDisabled = reactive({
+  doubleBetBtn: false,
+  newGameBtn: true,
+  requestBtn: false,
+  standBtn: false,
+})
+
+const emit = defineEmits(['check-result'])
+
+onMounted(() => {
+  console.clear()
+  if (props.totalMoney < props.bet) {
+    btnDisabled.doubleBetBtn = true
+  }
+  createDeck()
+  requestCardBtn()
+})
+
+const isDoubleBetBtnDisabled = () => btnDisabled.doubleBetBtn
+const isRequestBtnDisabled = () => btnDisabled.requestBtn
+const isStandBtnDisabled = () => btnDisabled.standBtn
+
+const requestCardBtn = () => {
+  const card = requestCard()
+  playerPoints.value = playerPoints.value + cardValue(card)
+  playerCards.value.push(card)
+  setTimeout(() => {
+    if (
+      computerPoints.value < 21 &&
+      computerPoints.value < playerPoints.value &&
+      playerPoints.value < 21
+    ) {
+      const compCard = requestCard()
+      computerPoints.value = computerPoints.value + cardValue(compCard)
+      computerCards.value.push(compCard)
+    }
+    if (playerPoints.value > 21 || computerPoints.value > 21) finishGame()
+  }, 500)
+}
+
+const standGame = () => {
+  while (
+    computerPoints.value < 21 &&
+    computerPoints.value < playerPoints.value &&
+    playerPoints.value <= 21
+  ) {
+    const compCard = requestCard()
+    computerPoints.value = computerPoints.value + cardValue(compCard)
+    computerCards.value.push(compCard)
+  }
+  finishGame()
+}
+
+const finishGame = () => {
+  if (playerPoints.value > 21) {
+    playerWin.value = 0
+  } else if (computerPoints.value > 21 || playerPoints.value > computerPoints.value) {
+    playerWin.value = 2
+  } else if (playerPoints.value === computerPoints.value) {
+    playerWin.value = 1
+  } else if (playerPoints.value < computerPoints.value) {
+    playerWin.value = 0
+  }
+
+  emit('check-result', playerWin.value, isDoubleBet.value)
+}
+
+const onDoubleBet = () => {
+  if (props.totalMoney >= props.bet) {
+    isDoubleBet.value = true
+    btnDisabled.doubleBetBtn = true
+  }
+}
+</script>
+
+<template>
+  <main class="blackjack-body">
+    <h2 class="blackjack-title">Bet: {{ props.bet }}</h2>
+    <div class="buttons">
+      <button
+        class="btn double-bet-btn"
+        :class="isDoubleBetBtnDisabled() ? 'isDisabled' : ''"
+        @click="onDoubleBet"
+        :disabled="isDoubleBetBtnDisabled() ? true : false"
+      >
+        Double Bet
+      </button>
+
+      <button
+        class="btn request-btn"
+        :class="isRequestBtnDisabled() ? 'isDisabled' : ''"
+        @click="requestCardBtn"
+        :disabled="isRequestBtnDisabled() ? true : false"
+      >
+        Request
+      </button>
+
+      <button
+        class="btn stand-btn"
+        :class="isStandBtnDisabled() ? 'isDisabled' : ''"
+        @click="standGame"
+        :disabled="isStandBtnDisabled() ? true : false"
+      >
+        Stand
+      </button>
+    </div>
+    <h2>
+      Player - <span>{{ playerPoints }}</span>
+    </h2>
+    <div class="user-cards">
+      <img
+        v-for="card of playerCards"
+        :key="card"
+        :src="'/src/assets/blackjack/' + card + '.png'"
+        :alt="'Card ' + card + ' image'"
+        width="150"
+        class="card fade-enter"
+      />
+    </div>
+    <h2>
+      Dealer - <span>{{ computerPoints }}</span>
+    </h2>
+    <div class="user-cards">
+      <img
+        v-for="card of computerCards"
+        :key="card"
+        :src="'/src/assets/blackjack/' + card + '.png'"
+        :alt="'Card ' + card + ' image'"
+        width="150"
+        class="card shake"
+      />
+    </div>
+  </main>
+</template>
+
+<style></style>
