@@ -27,19 +27,30 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="confetti center">
+  <header class="absolute top-0 left-0 right-0 flex justify-center">
     <ConfettiExplosion :particleCount="700" :duration="5000" />
   </header>
-  <main class="blackjack-result">
-    <section class="blackjack-card">
-      <div class="blackjack-card-first-square" :style="`background-color: ${background};`">
-        <div class="blackjack-card-second-square">
-          <div class="blackjack-card-circle">
-            <div class="blackjack-card-diamont" :style="`background-color: ${background};`"></div>
+  <main class="w-screen h-screen bg-[#184132] flex flex-col justify-center items-center gap-8">
+    <section class="w-56 h-80 bg-white rounded-lg flex justify-center items-center">
+      <div
+        class="w-[90%] h-[92%] flex justify-center items-center"
+        :style="`background-color: ${background};`"
+      >
+        <div
+          class="w-4/5 h-[82%] flex flex-col justify-center items-center border border-white gap-[10%]"
+        >
+          <div class="w-3/5 h-2/5 bg-white rounded-full">
+            <div
+              class="h-full w-full [clip-path:polygon(50%_5%,90%_50%,50%_95%,10%_50%)]"
+              :style="`background-color: ${background};`"
+            ></div>
           </div>
-          <p class="blackjack-card-message">{{ message }}</p>
-          <div class="blackjack-card-circle">
-            <div class="blackjack-card-diamont" :style="`background-color: ${background};`"></div>
+          <p class="absolute text-white font-bold text-normal m-0 p-0">{{ message }}</p>
+          <div class="w-3/5 h-2/5 bg-white rounded-full">
+            <div
+              class="w-full h-full [clip-path:polygon(50%_5%,90%_50%,50%_95%,10%_50%)]"
+              :style="`background-color: ${background};`"
+            ></div>
           </div>
         </div>
       </div>
@@ -47,68 +58,3 @@ onMounted(() => {
     <button class="btn" @click="$emit('new-game')">New Game</button>
   </main>
 </template>
-
-<style scoped>
-.blackjack-result {
-  width: 100vw;
-  height: 100vh;
-  background-color: #184132;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
-.blackjack-card {
-  width: 15rem;
-  height: 22rem;
-  background-color: white;
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.blackjack-card-first-square {
-  width: 90%;
-  height: 92%;
-  /* background-color: red; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.blackjack-card-second-square {
-  width: 80%;
-  height: 82%;
-  border: 1px solid white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8%;
-}
-
-.blackjack-card-circle {
-  width: 80%;
-  height: 40%;
-  background-color: white;
-  border-radius: 50%;
-}
-
-.blackjack-card-message {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-}
-
-.blackjack-card-diamont {
-  height: 100%;
-  width: 100%;
-  clip-path: polygon(50% 5%, 90% 50%, 50% 95%, 10% 50%);
-}
-</style>

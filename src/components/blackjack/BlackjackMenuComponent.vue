@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-// import PageHeader from '@/components/PageHeader.vue'
 
 const props = defineProps({
   totalMoney: {
@@ -46,36 +45,36 @@ const emitBet = () => {
 
 <template>
   <div class="bg-[#184132] absolute w-screen h-fit sm:h-screen pt-32 -z-50">
-    <main class="flex flex-col justify-center items-center text-white">
+    <main class="flex flex-col justify-center items-center text-white pb-8 mb-8">
       <h2 class="font-bold text-2xl">Blackjack</h2>
       <p>Please, select your bet to start play</p>
       <div class="flex flex-col sm:flex-row sm:gap-8">
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-[white] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-[white] before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-[white] after:inset-0 white"
+          class="relative flex justify-center items-center w-[100px] h-[100px] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-black text-black before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 before:bg-white before:border before:border-black after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-black after:inset-0"
           @click="betChips(1)"
         >
           5
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-[white] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-[white] before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-[white] after:inset-0 red"
+          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-red-700"
           @click="betChips(2)"
         >
           10
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-[white] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-[white] before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-[white] after:inset-0 green"
+          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-green-800"
           @click="betChips(3)"
         >
           20
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-[white] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-[white] before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-[white] after:inset-0 blue"
+          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-blue-800"
           @click="betChips(4)"
         >
           50
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-[white] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-[white] before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-[white] after:inset-0 black"
+          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-black"
           @click="betChips(5)"
         >
           100
@@ -91,36 +90,3 @@ const emitBet = () => {
     </main>
   </div>
 </template>
-
-<style scoped>
-.white {
-  border: 13px dashed black;
-  color: black;
-}
-
-.white:before {
-  background-color: white;
-  border: 1px solid black;
-}
-
-.red:before {
-  background-color: red;
-}
-
-.green:before {
-  background-color: green;
-}
-
-.blue:before {
-  background-color: blue;
-}
-
-.black:before {
-  background-color: black;
-}
-
-.white::after {
-  border: 3px dashed black;
-  /* border: 1px solid black; */
-}
-</style>

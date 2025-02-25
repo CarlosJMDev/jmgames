@@ -15,6 +15,7 @@ const props = defineProps({
 })
 
 const isDoubleBet = ref(false)
+const currentBet = ref(props.bet)
 
 const playerPoints = ref(0)
 const computerPoints = ref(0)
@@ -95,14 +96,15 @@ const onDoubleBet = () => {
   if (props.totalMoney >= props.bet) {
     isDoubleBet.value = true
     btnDisabled.doubleBetBtn = true
+    currentBet.value = props.bet * 2
   }
 }
 </script>
 
 <template>
-  <main class="blackjack-body">
-    <h2 class="blackjack-title">Bet: {{ props.bet }}</h2>
-    <div class="buttons">
+  <main class="w-screen h-screen bg-green-900 p-12">
+    <h2 class="text-white text-center">Current Bet: {{ currentBet }}$</h2>
+    <div class="flex justify-center gap-8 p-4">
       <button
         class="btn double-bet-btn"
         :class="isDoubleBetBtnDisabled() ? 'isDisabled' : ''"
@@ -130,33 +132,47 @@ const onDoubleBet = () => {
         Stand
       </button>
     </div>
-    <h2>
+    <h2 class="font-bold py-4 text-white">
       Player - <span>{{ playerPoints }}</span>
     </h2>
-    <div class="user-cards">
+    <div class="h-64 flex">
       <img
         v-for="card of playerCards"
         :key="card"
         :src="'/src/assets/blackjack/' + card + '.png'"
         :alt="'Card ' + card + ' image'"
         width="150"
-        class="card fade-enter"
+        class="fade-enter relative w-40 left-32 -ml-32"
       />
     </div>
-    <h2>
+    <h2 class="font-bold py-4 text-white">
       Dealer - <span>{{ computerPoints }}</span>
     </h2>
-    <div class="user-cards">
+    <div class="h-64 flex">
       <img
         v-for="card of computerCards"
         :key="card"
         :src="'/src/assets/blackjack/' + card + '.png'"
         :alt="'Card ' + card + ' image'"
         width="150"
-        class="card shake"
+        class="fade-enter relative w-40 left-32 -ml-32"
       />
     </div>
   </main>
 </template>
 
-<style></style>
+<style>
+.fade-enter {
+  animation: fadeEnter 0.3s;
+}
+@keyframes fadeEnter {
+  0% {
+    transform: translateY(900px);
+    z-index: 20;
+  }
+  100% {
+    transform: translateY(0);
+    z-index: 1;
+  }
+}
+</style>
