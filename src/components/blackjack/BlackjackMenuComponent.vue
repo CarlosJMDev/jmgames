@@ -44,37 +44,37 @@ const emitBet = () => {
 </script>
 
 <template>
-  <div class="bg-[#184132] absolute w-screen h-fit sm:h-screen pt-32 -z-50">
+  <div class="w-full h-full pt-32">
     <main class="flex flex-col justify-center items-center text-white pb-8 mb-8">
       <h2 class="font-bold text-2xl">Blackjack</h2>
       <p>Please, select your bet to start play</p>
       <div class="flex flex-col sm:flex-row sm:gap-8">
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-black text-black before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 before:bg-white before:border before:border-black after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-black after:inset-0"
+          class="relative flex justify-center items-center w-[100px] h-[100px] mx-auto my-[30px] p-0 rounded-full border-[13px] border-dashed border-black text-black bg-transparent z-10 before:absolute before:-z-10 before:inset-0 before:-m-4 before:rounded-full before:bg-white before:content-[''] after:absolute after:z-20 after:inset-0 after:m-[5px] after:rounded-full after:border-[3px] after:border-dashed after:border-black after:content-['']"
           @click="betChips(1)"
         >
           5
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-red-700"
+          class="relative flex justify-center items-center w-[100px] h-[100px] mx-auto my-[30px] p-0 rounded-full border-[13px] border-dashed border-white text-white bg-transparent z-10 before:absolute before:-z-10 before:inset-0 before:-m-4 before:rounded-full before:bg-red-700 before:content-[''] after:absolute after:z-20 after:inset-0 after:m-[5px] after:rounded-full after:border-[3px] after:border-dashed after:border-white after:content-['']"
           @click="betChips(2)"
         >
           10
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-green-800"
+          class="relative flex justify-center items-center w-[100px] h-[100px] mx-auto my-[30px] p-0 rounded-full border-[13px] border-dashed border-white text-white bg-transparent z-10 before:absolute before:-z-10 before:inset-0 before:-m-4 before:rounded-full before:bg-green-800 before:content-[''] after:absolute after:z-20 after:inset-0 after:m-[5px] after:rounded-full after:border-[3px] after:border-dashed after:border-white after:content-['']"
           @click="betChips(3)"
         >
           20
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-blue-800"
+          class="relative flex justify-center items-center w-[100px] h-[100px] mx-auto my-[30px] p-0 rounded-full border-[13px] border-dashed border-white text-white bg-transparent z-20 before:absolute before:-z-10 before:inset-0 before:-m-4 before:rounded-full before:bg-blue-800 before:content-[''] after:absolute after:z-20 after:inset-0 after:m-[5px] after:rounded-full after:border-[3px] after:border-dashed after:border-white after:content-['']"
           @click="betChips(4)"
         >
           50
         </button>
         <button
-          class="relative flex justify-center items-center w-[100px] h-[100px] text-white cursor-pointer mx-auto my-[30px] p-0 rounded-[50%] border-[13px] border-dashed border-white before:absolute before:z-[-1] before:content-[''] before:-m-4 before:rounded-[50%] before:inset-0 after:absolute after:z-[-1] after:content-[''] after:m-[5px] after:rounded-[50%] after:border-[3px] after:border-dashed after:border-white after:inset-0 before:bg-black"
+          class="relative flex justify-center items-center w-[100px] h-[100px] mx-auto my-[30px] p-0 rounded-full border-[13px] border-dashed border-white text-white bg-transparent z-10 before:absolute before:-z-10 before:inset-0 before:-m-4 before:rounded-full before:bg-black before:content-[''] after:absolute after:z-20 after:inset-0 after:m-[5px] after:rounded-full after:border-[3px] after:border-dashed after:border-white after:content-['']"
           @click="betChips(5)"
         >
           100
