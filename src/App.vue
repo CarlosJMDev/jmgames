@@ -3,9 +3,9 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <body
-    class="min-w-screen min-h-screen flex flex-col justify-between items-center m-auto bg-[#14213d] overflow-x-hidden"
+  <div
+    class="relative min-w-screen min-h-screen flex flex-col justify-between items-center m-auto bg-[#14213d] overflow-x-hidden z-0"
   >
     <RouterView />
-  </body>
+  </div>
 </template>
