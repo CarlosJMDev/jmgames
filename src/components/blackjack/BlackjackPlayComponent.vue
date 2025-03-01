@@ -136,27 +136,39 @@ const onDoubleBet = () => {
       Player - <span>{{ playerPoints }}</span>
     </h2>
     <div class="h-64 flex">
-      <img
+      <picture
         v-for="card of playerCards"
         :key="card"
-        :src="'/src/assets/blackjack/' + card + '.png'"
-        :alt="'Card ' + card + ' image'"
-        width="150"
         class="fade-enter relative w-40 left-32 -ml-32"
-      />
+      >
+        <!-- <source :srcset="'/src/assets/blackjack/' + card + '.avif'" type="image/avif" /> -->
+        <source :srcset="'/src/assets/blackjack/' + card + '.webp'" type="image/webp" />
+        <img
+          :src="'/src/assets/blackjack/' + card + '.png'"
+          :alt="'Card ' + card + ' image'"
+          width="150"
+          loading="lazy"
+        />
+      </picture>
     </div>
     <h2 class="font-bold py-4 text-white">
       Dealer - <span>{{ computerPoints }}</span>
     </h2>
     <div class="h-64 flex">
-      <img
+      <picture
         v-for="card of computerCards"
         :key="card"
-        :src="'/src/assets/blackjack/' + card + '.png'"
-        :alt="'Card ' + card + ' image'"
-        width="150"
         class="fade-enter relative w-40 left-32 -ml-32"
-      />
+      >
+        <!-- <source :srcset="'/src/assets/blackjack/' + card + '.avif'" type="image/avif" /> -->
+        <source :srcset="'/src/assets/blackjack/' + card + '.webp'" type="image/webp" />
+        <img
+          :src="'/src/assets/blackjack/' + card + '.png'"
+          :alt="'Card ' + card + ' image'"
+          width="150"
+          loading="lazy"
+        />
+      </picture>
     </div>
   </main>
 </template>
