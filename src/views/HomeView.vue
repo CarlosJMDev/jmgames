@@ -21,10 +21,10 @@ import GameCard from '../components/GameCard.vue'
         link="pokemon"
       />
       <GameCard
-        title="Blackjack"
+        title="Tetris"
         description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
         image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
-        link="blackjack"
+        link="tetris"
       />
       <GameCard
         title="Blackjack"
