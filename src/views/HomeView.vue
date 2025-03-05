@@ -7,7 +7,7 @@ import GameCard from '../components/GameCard.vue'
 <template>
   <PageHeader />
   <div class="max-w-[min(95%,1200px)] h-full flex justify-center items-center gap-2 flex-col py-12">
-    <div class="max-w-5xl h-full flex flex-col md:grid md:grid-cols-2 gap-6">
+    <div class="max-w-5xl h-full flex flex-col md:grid md:grid-cols-2 gap-10">
       <GameCard
         title="Blackjack"
         description="Win the game by obtaining  a score higher than the other player and with a value less than or equal to 21"

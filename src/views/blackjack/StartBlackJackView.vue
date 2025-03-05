@@ -6,27 +6,32 @@ import { ref } from 'vue'
 import PageHeader from '@/components/PageHeader.vue'
 import PageFooter from '@/components/PageFooter.vue'
 
-const playGame = ref(false)
-const totalMoney = ref(1000)
-const wager = ref(0)
-const win = ref(false)
-const endGame = ref(false)
-const message = ref('Congratulations')
+const playGame = ref<boolean>(false)
+const totalMoney = ref<number>(1000)
+const wager = ref<number>(0)
+const win = ref<boolean>(false)
+const endGame = ref<boolean>(false)
+const message = ref<string>('Congratulations')
 
-const newGame = () => {
+interface BetSelectionPayload {
+  bet: number
+  playState: boolean
+}
+
+const newGame = (): void => {
   endGame.value = false
   wager.value = 0
   playGame.value = false
 }
 
-const betSelection = ({ bet, playState }) => {
+const betSelection = ({ bet, playState }: BetSelectionPayload): void => {
   console.log(bet)
   console.log(playState)
   playGame.value = playState
   wager.value = bet
 }
 
-const onCheckResult = (playerWin, isDoubleBet) => {
+const onCheckResult = (playerWin: number, isDoubleBet: boolean): void => {
   if (isDoubleBet) {
     wager.value = wager.value * 2
   }

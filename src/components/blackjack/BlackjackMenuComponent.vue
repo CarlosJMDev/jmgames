@@ -82,7 +82,7 @@ const emitBet = () => {
       </div>
       <div class="flex gap-4">
         <p>{{ bet }}</p>
-        <img src="/src/assets/blackjack/chips.svg" alt="bet svg" width="40" />
+        <img src="/blackjack/chips.svg" alt="bet svg" width="40" />
         <p>{{ moneyCredit }}</p>
       </div>
       <br />

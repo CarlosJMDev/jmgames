@@ -14,16 +14,15 @@ const props = defineProps({
   },
 })
 
-const isDoubleBet = ref(false)
-const currentBet = ref(props.bet)
+const isDoubleBet = ref<boolean>(false)
+const currentBet = ref<number>(props.bet)
 
-const playerPoints = ref(0)
-const computerPoints = ref(0)
+const playerPoints = ref<number>(0)
+const computerPoints = ref<number>(0)
 
-const playerCards = ref([])
-const computerCards = ref([])
-
-const playerWin = ref(0)
+const playerCards = ref<string[]>([])
+const computerCards = ref<string[]>([])
+const playerWin = ref<number>(0)
 
 const btnDisabled = reactive({
   doubleBetBtn: false,
@@ -142,9 +141,9 @@ const onDoubleBet = () => {
         class="fade-enter relative w-40 left-32 -ml-32"
       >
         <!-- <source :srcset="'/src/assets/blackjack/' + card + '.avif'" type="image/avif" /> -->
-        <source :srcset="'/src/assets/blackjack/' + card + '.webp'" type="image/webp" />
+        <source :srcset="'/blackjack/' + card + '.webp'" type="image/webp" />
         <img
-          :src="'/src/assets/blackjack/' + card + '.png'"
+          :src="'/blackjack/' + card + '.png'"
           :alt="'Card ' + card + ' image'"
           width="150"
           loading="lazy"
@@ -161,9 +160,9 @@ const onDoubleBet = () => {
         class="fade-enter relative w-40 left-32 -ml-32"
       >
         <!-- <source :srcset="'/src/assets/blackjack/' + card + '.avif'" type="image/avif" /> -->
-        <source :srcset="'/src/assets/blackjack/' + card + '.webp'" type="image/webp" />
+        <source :srcset="'/blackjack/' + card + '.webp'" type="image/webp" />
         <img
-          :src="'/src/assets/blackjack/' + card + '.png'"
+          :src="'/blackjack/' + card + '.png'"
           :alt="'Card ' + card + ' image'"
           width="150"
           loading="lazy"

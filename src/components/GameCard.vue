@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <RouterLink :to="{ name: props.link }">
-    <div class="h-full flex flex-col m-4 border border-gray-700 rounded-2xl text-white">
+    <div class="h-full flex flex-col border border-gray-700 rounded-2xl text-white">
       <header class="m-0 rounded-t-2xl flex justify-center align-middle bg-slate-900 bg-opacity-5">
         <img
           :src="props.image"
