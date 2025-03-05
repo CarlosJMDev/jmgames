@@ -1,5 +1,20 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-retro: 'PressStart2P', san-serif;
+}
+
+@font-face {
+  font-family: 'PressStart2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/fonts/press-start-2p-400.woff2') format('woff2'),
+    url('/fonts/press-start-2p-400.woff') format('woff'),
+    url('/fonts/press-start-2p-400.ttf') format('ttf');
+}
+
 .btn {
   @apply w-36 h-10 leading-[42px] text-white font-bold cursor-pointer transition-all duration-[0.3s] ease-[ease] relative inline-block shadow-[inset_2px_2px_2px_0px_rgba(255,255,255,0.5),7px_7px_20px_0px_rgba(0,0,0,0.1),4px_4px_5px_0px_rgba(0,0,0,0.1)] overflow-hidden rounded-[5px] border-[none] bg-linear-to-b from-[#00acee] to-[#027efb];
 }

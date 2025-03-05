@@ -51,8 +51,8 @@ const handleInit = () => {
 <template>
   <PageHeader />
   <h1 class="text-3xl font-extrabold text-white mt-10">Tetris Game</h1>
-  <GameEndComponent v-if="gameOver" @init-game="handleInit" />
-  <div v-else class="w-full h-full p-2 flex flex-col sm:flex-row items-center justify-center">
+  <GameEndComponent v-if="gameOver" @init-game="handleInit" :score="score" :level="level" />
+  <div v-else class="w-full h-full p-2 flex flex-col lg:flex-row items-center justify-center">
     <div class="flex flex-col justify-center items-center mt-2">
       <Board :grid="grid" />
     </div>
@@ -80,7 +80,7 @@ const handleInit = () => {
           <li>
             <strong>Rotate Piece:</strong>
             Press the <kbd class="bg-gray-700 px-1 rounded">Space</kbd> key to rotate the piece (if
-            there’s enough space, it will adjust to remain within the board).
+            there's enough space, it will adjust to remain within the board).
           </li>
           <li>
             <strong>Pause/Resume:</strong>

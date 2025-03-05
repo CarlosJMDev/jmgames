@@ -1,7 +1,5 @@
 <!-- src/components/tetris/Controls.vue -->
 <script setup lang="ts">
-import { defineEmits } from 'vue'
-
 const emit = defineEmits<{
   (e: 'move', direction: -1 | 1): void
   (e: 'rotate'): void
