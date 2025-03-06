@@ -1,38 +1,28 @@
 <script setup lang="ts">
-import PageHeader from '@/components/PageHeader.vue'
-import PageFooter from '@/components/PageFooter.vue'
 import GameCard from '../components/GameCard.vue'
 </script>
 
 <template>
-  <PageHeader />
   <div class="max-w-[min(95%,1200px)] h-full flex justify-center items-center gap-2 flex-col py-12">
-    <div class="max-w-5xl h-full flex flex-col md:grid md:grid-cols-2 gap-10">
+    <div class="max-w-5xl h-full flex flex-col md:grid md:grid-cols-2 gap-8">
       <GameCard
         title="Blackjack"
-        description="Win the game by obtaining  a score higher than the other player and with a value less than or equal to 21"
-        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
+        image="Blackjack"
         link="blackjack"
       />
       <GameCard
         title="Guest that Pokemon"
-        description="Win the game by obtaining a score of 100 "
-        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        description="Win the game by obtaining a score of 100 points by hitting a total of 50 Pokemons"
+        image="Pokemon"
         link="pokemon"
       />
       <GameCard
         title="Tetris"
-        description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
-        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+        description="Arrange the pieces to form complete lines. Completed lines will be cleared and you will earn points. As you progress, the drop speed will increase, so stay alert!"
+        image="Tetris"
         link="tetris"
-      />
-      <GameCard
-        title="Blackjack"
-        description="Win the game by obtaining a score higher than the other player and with a value less than or equal to 21"
-        image="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
-        link="blackjack"
       />
     </div>
   </div>
-  <PageFooter />
 </template>

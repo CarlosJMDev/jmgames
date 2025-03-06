@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import GameWinner from '@/components/pokemon/GameWinnerComponent.vue'
 import PokemonPicture from '@/components/pokemon/PokemonPictureComponent.vue'
 import PokemonOptions from '@/components/pokemon/PokemonOptionsComponent.vue'
-import GameWinner from '@/components/pokemon/GameWinnerComponent.vue'
 import getPokemonOptions from '@/helpers/getPokemonOptions.js'
-import { onMounted, ref } from 'vue'
-import PageHeader from '@/components/PageHeader.vue'
 
 interface Pokemon {
   id: number
@@ -83,12 +82,8 @@ const newGame = (): void => {
 </script>
 
 <template>
-  <PageHeader />
   <GameWinner v-if="isAWinner()" @new-game="newGame" />
-  <div
-    v-else
-    class="w-screen h-screen flex flex-col justify-center items-center bg-slate-600 -z-10 gap-4"
-  >
+  <div v-else class="w-screen h-full flex flex-col justify-center items-center -z-10 gap-4 mt-32">
     <div
       class="h-[570px] sm:h-[450px] flex flex-col justify-center items-center color-white gap-8"
       v-if="!pokemon"

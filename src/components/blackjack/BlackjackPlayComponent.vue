@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue'
-import { useBlackjackStore } from '../../stores/blackjack'
+import { useBlackjackStore } from '@/stores/blackjack'
+
 const { createDeck, requestCard, cardValue } = useBlackjackStore()
 
 const props = defineProps({
@@ -101,7 +102,7 @@ const onDoubleBet = () => {
 </script>
 
 <template>
-  <main class="w-screen h-screen bg-green-900 p-12">
+  <main class="w-screen h-full p-12">
     <h2 class="text-white text-center">Current Bet: {{ currentBet }}$</h2>
     <div class="flex justify-center gap-8 p-4">
       <button
@@ -140,7 +141,7 @@ const onDoubleBet = () => {
         :key="card"
         class="fade-enter relative w-40 left-32 -ml-32"
       >
-        <!-- <source :srcset="'/src/assets/blackjack/' + card + '.avif'" type="image/avif" /> -->
+        <!-- <source :srcset="'/blackjack/' + card + '.avif'" type="image/avif" /> -->
         <source :srcset="'/blackjack/' + card + '.webp'" type="image/webp" />
         <img
           :src="'/blackjack/' + card + '.png'"
@@ -159,7 +160,7 @@ const onDoubleBet = () => {
         :key="card"
         class="fade-enter relative w-40 left-32 -ml-32"
       >
-        <!-- <source :srcset="'/src/assets/blackjack/' + card + '.avif'" type="image/avif" /> -->
+        <!-- <source :srcset="'/blackjack/' + card + '.avif'" type="image/avif" /> -->
         <source :srcset="'/blackjack/' + card + '.webp'" type="image/webp" />
         <img
           :src="'/blackjack/' + card + '.png'"

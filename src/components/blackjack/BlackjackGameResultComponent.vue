@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ConfettiExplosion from 'vue-confetti-explosion'
 import { ref, onMounted } from 'vue'
+import ConfettiExplosion from 'vue-confetti-explosion'
 
 const props = defineProps({
   message: {
@@ -28,9 +28,9 @@ onMounted(() => {
 
 <template>
   <header class="absolute top-0 left-0 right-0 flex justify-center">
-    <ConfettiExplosion :particleCount="700" :duration="5000" />
+    <ConfettiExplosion :particleCount="500" :duration="5000" />
   </header>
-  <main class="w-screen h-screen bg-[#184132] flex flex-col justify-center items-center gap-8">
+  <main class="w-screen h-full flex flex-col justify-center items-center gap-8 mt-40">
     <section class="w-56 h-80 bg-white rounded-lg flex justify-center items-center">
       <div
         class="w-[90%] h-[92%] flex justify-center items-center"

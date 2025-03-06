@@ -9,7 +9,6 @@ const props = defineProps({
   },
 })
 
-// Computamos el estilo para definir dinámicamente el número de columnas según la longitud de la primera fila
 const gridStyle = computed(() => ({
   gridTemplateColumns: `repeat(${props.grid[0]?.length || 10}, minmax(0, 1fr))`,
 }))
@@ -27,9 +26,5 @@ const gridStyle = computed(() => ({
         </template>
       </template>
     </div>
-    <!-- </div> -->
   </main>
 </template>
-
-<!-- No es necesario agregar estilos adicionales ya que se usa Tailwind CSS -->
-<style scoped></style>

@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import BlackjackPlayComponent from '../../components/blackjack/BlackjackPlayComponent.vue'
-import BlackjackMenuComponent from '../../components/blackjack/BlackjackMenuComponent.vue'
-import BlackjackGameResultComponent from '../../components/blackjack/BlackjackGameResultComponent.vue'
 import { ref } from 'vue'
-import PageHeader from '@/components/PageHeader.vue'
-import PageFooter from '@/components/PageFooter.vue'
+import BlackjackPlayComponent from '@/components/blackjack/BlackjackPlayComponent.vue'
+import BlackjackMenuComponent from '@/components/blackjack/BlackjackMenuComponent.vue'
+import BlackjackGameResultComponent from '@/components/blackjack/BlackjackGameResultComponent.vue'
 
 const playGame = ref<boolean>(false)
 const totalMoney = ref<number>(1000)
@@ -52,8 +50,7 @@ const onCheckResult = (playerWin: number, isDoubleBet: boolean): void => {
 </script>
 
 <template>
-  <main class="max-w-5xl min-h-screen flex flex-col justify-between items-center">
-    <PageHeader />
+  <main class="max-w-5xl h-full flex flex-col justify-between items-center">
     <BlackjackGameResultComponent
       v-if="endGame"
       :message="message"
@@ -73,6 +70,5 @@ const onCheckResult = (playerWin: number, isDoubleBet: boolean): void => {
         @check-result="onCheckResult"
       />
     </div>
-    <PageFooter />
   </main>
 </template>

@@ -1,13 +1,11 @@
 <!-- src/views/tetris/TetrisGameView.vue -->
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
+import { useTetris } from '@/composables/useTetris'
+import Info from '@/components/tetris/InfoComponent.vue'
 import Board from '@/components/tetris/BoardComponent.vue'
 import Controls from '@/components/tetris/ControlsComponent.vue'
-import { useTetris } from '@/composables/useTetris'
 import GameEndComponent from '@/components/tetris/GameEndComponent.vue'
-import PageHeader from '@/components/PageHeader.vue'
-import PageFooter from '@/components/PageFooter.vue'
-import Info from '@/components/tetris/InfoComponent.vue'
 
 const {
   grid,
@@ -49,7 +47,6 @@ const handleInit = () => {
 </script>
 
 <template>
-  <PageHeader />
   <h1 class="text-3xl font-extrabold text-white mt-10">Tetris Game</h1>
   <GameEndComponent v-if="gameOver" @init-game="handleInit" :score="score" :level="level" />
   <div v-else class="w-full h-full p-2 flex flex-col lg:flex-row items-center justify-center">
@@ -97,5 +94,4 @@ const handleInit = () => {
       </div>
     </div>
   </div>
-  <PageFooter />
 </template>
