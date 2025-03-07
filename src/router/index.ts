@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'tetris',
       component: () => import('../views/tetris/TetrisGameView.vue'),
     },
+    {
+      path: '/hangman',
+      name: 'hangman',
+      component: () => import('../views/hangman/HangmanGameView.vue'),
+    },
   ],
 })
 
