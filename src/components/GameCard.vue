@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <RouterLink :to="{ name: props.link }">
-    <div class="h-full flex flex-col border border-gray-700 rounded-2xl text-white">
+    <div class="h-full flex flex-col border border-gray-700 rounded-2xl text-white hover:scale-105">
       <header class="m-0 rounded-t-2xl flex justify-center align-middle bg-opacity-5">
         <picture class="w-[450px] h-72 aspect-7/5">
           <source :srcset="`/games/${props.image}.avif`" type="image/avif" />
@@ -21,7 +21,7 @@ const props = defineProps({
             :alt="props.title"
             width="450"
             height="300"
-            class="rounded-t-[16px] hover:scale-105 hover:rounded-[16px] hover:border-l hover:border-r hover:border-t hover:border-gray-700 aspect-7/5"
+            class="rounded-t-[16px] aspect-7/5"
           />
         </picture>
       </header>

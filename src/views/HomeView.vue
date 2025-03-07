@@ -3,7 +3,7 @@ import GameCard from '../components/GameCard.vue'
 </script>
 
 <template>
-  <div class="max-w-[min(95%,1200px)] h-full flex justify-center items-center gap-2 flex-col py-12">
+  <div class="max-w-[min(90%,1000px)] h-full flex justify-center items-center gap-2 flex-col py-12">
     <div class="max-w-5xl h-full flex flex-col md:grid md:grid-cols-2 gap-8">
       <GameCard
         title="Tetris"
@@ -13,7 +13,9 @@ import GameCard from '../components/GameCard.vue'
       />
       <GameCard
         title="Hangman"
-        description="Arrange the pieces to form complete lines. Completed lines will be cleared and you will earn points. As you progress, the drop speed will increase, so stay alert!"
+        description="Correct letters fill in the blanks, while wrong guesses add parts to a hangman drawing. The game continues until you either complete the word or the drawing is finished.
+        Your goal is to guess the word before the drawing is complete.
+        Enjoy the challenge!"
         image="Hangman"
         link="hangman"
       />
