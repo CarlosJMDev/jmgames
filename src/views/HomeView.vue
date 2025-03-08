@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import GameCard from '../components/GameCard.vue'
 import LanguageSelector from '@/components/LanguageSelector.vue'
-import { inject } from 'vue'
+import { inject, computed } from 'vue'
 
-const i18n = inject('i18n') as { t: (key: string) => string }
+const i18n = inject('i18n') as { t: (key: string) => string; locale: string }
+
+const tetrisImage = computed(() => `Tetris${i18n.locale}`)
+const hangmanImage = computed(() => `Hangman${i18n.locale}`)
+const blackjackImage = computed(() => `Blackjack${i18n.locale}`)
+const pokemonImage = computed(() => `Pokemon${i18n.locale}`)
 </script>
 
 <template>
@@ -13,25 +18,25 @@ const i18n = inject('i18n') as { t: (key: string) => string }
       <GameCard
         :title="i18n.t('tetris.title')"
         :description="i18n.t('tetris.description')"
-        image="Tetris"
+        :image="tetrisImage"
         link="tetris"
       />
       <GameCard
         :title="i18n.t('hangman.title')"
         :description="i18n.t('hangman.description')"
-        image="Hangman"
+        :image="hangmanImage"
         link="hangman"
       />
       <GameCard
         :title="i18n.t('blackjack.title')"
         :description="i18n.t('blackjack.description')"
-        image="Blackjack"
+        :image="blackjackImage"
         link="blackjack"
       />
       <GameCard
         :title="i18n.t('pokemon.title')"
         :description="i18n.t('pokemon.description')"
-        image="Pokemon"
+        :image="pokemonImage"
         link="pokemon"
       />
     </div>

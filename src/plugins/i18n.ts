@@ -43,7 +43,7 @@ const messages = {
         'Arrange the pieces to form complete lines. Completed lines will be cleared and you will earn points. As you progress, the drop speed will increase, so stay alert!',
       resume: 'Resume',
       pause: 'Pause',
-      left: 'Izquierda',
+      left: 'Left',
       rotate: 'Rotate',
       right: 'Right',
       down: 'Down',
@@ -148,7 +148,7 @@ const messages = {
     hangman: {
       title: 'Ahorcado',
       description:
-        'Las letras correctas llenan los espacios en blanco, mientras que los intentos erróneos añaden partes al dibujo del ahorcado. El juego continúa hasta que completes la palabra o se termine el dibujo. Tu objetivo es adivinar la palabra antes de que se complete el dibujo. ¡Disfruta del desafío!',
+        'Las letras correctas llenan los espacios en blanco, mientras que los intentos erróneos añaden partes al dibujo. El juego continúa hasta que completes la palabra o se termine el dibujo. Adivina la palabra antes de completarse el dibujo. ¡Disfruta del desafío!',
       attempts: 'Intentos restantes',
       loading: 'Cargando palabra ...',
       congratulations: '¡Felicidades, has adivinado la palabra correcta!',
