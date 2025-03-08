@@ -7,10 +7,6 @@ interface KeyboardProps {
   guessedLetters: string[]
 }
 
-// const props = defineProps({
-//   guessedLetters: Array,
-// })
-
 const props = defineProps<KeyboardProps>()
 
 const emit = defineEmits(['letter-selected'])

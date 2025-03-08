@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 interface Pokemon {
   id: number
@@ -29,7 +31,7 @@ const selection = () => isSelected.value
 
 <template>
   <div class="flex flex-col justify-center items-center gap-8">
-    <h2 class="flex justify-center items-center text-white">Select the correct option</h2>
+    <h2 class="flex justify-center items-center text-white">{{ i18n.t('pokemon.options') }}</h2>
     <ul
       class="flex flex-col sm:flex-row justify-center justify-items-center items-center gap-2 m-0 p-0"
     >

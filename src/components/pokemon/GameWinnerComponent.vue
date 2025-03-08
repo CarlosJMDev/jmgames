@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 defineEmits(['new-game'])
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 </script>
 
 <template>
@@ -23,7 +26,7 @@ defineEmits(['new-game'])
       </main>
       <footer class="bg-white w-full h-[45%] [clip-path:ellipse(50%_100%_at_50%_0)]"></footer>
     </div>
-    <h2 class="text-white">Congratulations, you have completed the challenge</h2>
-    <button class="btn" @click="$emit('new-game')">New Game</button>
+    <h2 class="text-white">{{ i18n.t('pokemon.win') }}</h2>
+    <button class="btn" @click="$emit('new-game')">{{ i18n.t('common.newGame') }}</button>
   </div>
 </template>

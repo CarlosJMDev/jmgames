@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 import GameWinner from '@/components/pokemon/GameWinnerComponent.vue'
 import PokemonPicture from '@/components/pokemon/PokemonPictureComponent.vue'
 import PokemonOptions from '@/components/pokemon/PokemonOptionsComponent.vue'
-import getPokemonOptions from '@/helpers/getPokemonOptions.js'
+import getPokemonOptions from '@/helpers/getPokemonOptions'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 interface Pokemon {
   id: number
@@ -51,10 +53,13 @@ const checkAnswer = (selectedId: number) => {
   showPokemon.value = true
   showAnswer.value = true
   if (pokemon.value && selectedId === pokemon.value.id) {
-    message.value = { text: `Correct, ${pokemon.value.name}`, isCorrect: true }
+    message.value = { text: `${i18n.t('pokemon.correct')} ${pokemon.value.name}`, isCorrect: true }
     progress.value += 2
   } else if (pokemon.value) {
-    message.value = { text: `Incorrect, it was ${pokemon.value.name}`, isCorrect: false }
+    message.value = {
+      text: `${i18n.t('pokemon.incorrect')} ${pokemon.value.name}`,
+      isCorrect: false,
+    }
     progress.value = 0
   }
   if (progress.value === 100) {
@@ -94,10 +99,12 @@ const newGame = (): void => {
         aria-live="polite"
         aria-label="Cargando..."
       ></div>
-      <p class="text-white font-bold">Espere por favor...</p>
+      <p class="text-white font-bold">{{ i18n.t('pokemon.wait') }}</p>
     </div>
     <div v-else class="h-[570px] sm:h-[450px] flex flex-col items-center gap-8">
-      <h2 class="flex justify-center items-center text-white font-bold">¿Who is this Pokemon?</h2>
+      <h2 class="flex justify-center items-center text-white font-bold">
+        {{ i18n.t('pokemon.guess') }}
+      </h2>
       <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
       <PokemonOptions
         :pokemonId="pokemon.id"
@@ -115,7 +122,7 @@ const newGame = (): void => {
           :class="isDisabled()"
           :disabled="disable() ? true : false"
         >
-          Next Pokemon
+          {{ i18n.t('pokemon.next') }}
         </button>
       </div>
     </div>
@@ -126,7 +133,7 @@ const newGame = (): void => {
         class="h-full border bg-[green] absolute z-[5] rounded-2xl border-solid border-green-500"
         :style="`width: ${progress}%;`"
       ></div>
-      <p class="text-white translate-y-full">Progress Bar</p>
+      <p class="text-white translate-y-full">{{ i18n.t('pokemon.progress') }}</p>
     </footer>
   </div>
 </template>

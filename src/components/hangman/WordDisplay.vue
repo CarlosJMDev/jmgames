@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 interface WordDisplayProps {
   secretWord: string
@@ -28,5 +30,5 @@ const displayedWord = computed<string>(() =>
   <div v-if="props.secretWord" class="text-2xl font-mono tracking-wide">
     <span v-for="(letter, index) in displayedWord" :key="index">{{ letter }}</span>
   </div>
-  <div v-else>Loading word ...</div>
+  <div v-else>{{ i18n.t('hangman.loading') }}</div>
 </template>

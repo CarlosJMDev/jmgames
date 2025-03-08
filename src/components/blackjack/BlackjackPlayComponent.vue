@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref, onMounted, inject } from 'vue'
 import { useBlackjackStore } from '@/stores/blackjack'
 
 const { createDeck, requestCard, cardValue } = useBlackjackStore()
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 const props = defineProps({
   totalMoney: {
@@ -103,7 +105,7 @@ const onDoubleBet = () => {
 
 <template>
   <main class="w-screen h-full p-12">
-    <h2 class="text-white text-center">Current Bet: {{ currentBet }}$</h2>
+    <h2 class="text-white text-center">{{ i18n.t('blackjack.currentBet') }} {{ currentBet }}$</h2>
     <div class="flex justify-center gap-8 p-4">
       <button
         class="btn double-bet-btn"
@@ -111,7 +113,7 @@ const onDoubleBet = () => {
         @click="onDoubleBet"
         :disabled="isDoubleBetBtnDisabled() ? true : false"
       >
-        Double Bet
+        {{ i18n.t('blackjack.dblBet') }}
       </button>
 
       <button
@@ -120,7 +122,7 @@ const onDoubleBet = () => {
         @click="requestCardBtn"
         :disabled="isRequestBtnDisabled() ? true : false"
       >
-        Request
+        {{ i18n.t('blackjack.request') }}
       </button>
 
       <button
@@ -129,11 +131,11 @@ const onDoubleBet = () => {
         @click="standGame"
         :disabled="isStandBtnDisabled() ? true : false"
       >
-        Stand
+        {{ i18n.t('blackjack.stand') }}
       </button>
     </div>
     <h2 class="font-bold py-4 text-white">
-      Player - <span>{{ playerPoints }}</span>
+      {{ i18n.t('blackjack.player') }} - <span>{{ playerPoints }}</span>
     </h2>
     <div class="h-64 flex">
       <picture
@@ -152,7 +154,7 @@ const onDoubleBet = () => {
       </picture>
     </div>
     <h2 class="font-bold py-4 text-white">
-      Dealer - <span>{{ computerPoints }}</span>
+      {{ i18n.t('blackjack.dealer') }} - <span>{{ computerPoints }}</span>
     </h2>
     <div class="h-64 flex">
       <picture

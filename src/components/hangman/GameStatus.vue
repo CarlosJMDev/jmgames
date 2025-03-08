@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 const props = defineProps({
   remainingAttempts: Number,
@@ -8,8 +10,8 @@ const props = defineProps({
 })
 
 const statusMessage = computed(() => {
-  if (props.isWinner) return '¡Ganaste! 🎉'
-  if (props.gameOver) return '¡Perdiste! 😢'
+  if (props.isWinner) return i18n.t('hangman.win')
+  if (props.gameOver) return i18n.t('hangman.lost')
   return ''
 })
 
@@ -20,7 +22,7 @@ const statusColor = computed(() => {
 
 <template>
   <div class="text-center mt-4">
-    <p class="text-lg font-bold">Intentos restantes: {{ remainingAttempts }}</p>
+    <p class="text-lg font-bold">{{ i18n.t('hangman.attempts') }} {{ remainingAttempts }}</p>
     <p v-if="gameOver" class="text-2xl font-bold" :class="statusColor">
       {{ statusMessage }}
     </p>

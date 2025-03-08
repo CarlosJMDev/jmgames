@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import ConfettiExplosion from 'vue-confetti-explosion'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 const props = defineProps({
   message: {
@@ -55,6 +57,6 @@ onMounted(() => {
         </div>
       </div>
     </section>
-    <button class="btn" @click="$emit('new-game')">New Game</button>
+    <button class="btn" @click="$emit('new-game')">{{ i18n.t('common.newGame') }}</button>
   </main>
 </template>

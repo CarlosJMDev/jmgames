@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// defineProps({
-//   errors: Number,
-// })
 interface HangmanFigureProps {
   errors: number
 }

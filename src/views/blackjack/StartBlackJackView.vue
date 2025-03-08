@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import BlackjackPlayComponent from '@/components/blackjack/BlackjackPlayComponent.vue'
 import BlackjackMenuComponent from '@/components/blackjack/BlackjackMenuComponent.vue'
 import BlackjackGameResultComponent from '@/components/blackjack/BlackjackGameResultComponent.vue'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 const playGame = ref<boolean>(false)
 const totalMoney = ref<number>(1000)
@@ -34,14 +36,14 @@ const onCheckResult = (playerWin: number, isDoubleBet: boolean): void => {
     wager.value = wager.value * 2
   }
   if (playerWin === 0) {
-    message.value = 'Sorry, you lost'
+    message.value = i18n.t('blackjack.lost')
     totalMoney.value -= wager.value
     win.value = false
   } else if (playerWin === 1) {
-    message.value = 'Sorry, no one wins'
+    message.value = i18n.t('blackjack.draw')
     win.value = false
   } else {
-    message.value = 'Cogratulations'
+    message.value = i18n.t('blackjack.win')
     totalMoney.value += wager.value
     win.value = true
   }

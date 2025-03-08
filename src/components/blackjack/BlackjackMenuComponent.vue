@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
+
+const i18n = inject('i18n') as { t: (key: string) => string }
 
 const props = defineProps({
   totalMoney: {
@@ -46,8 +48,8 @@ const emitBet = () => {
 <template>
   <div class="w-full h-full pt-32">
     <main class="flex flex-col justify-center items-center text-white pb-8 mb-8">
-      <h2 class="font-bold text-2xl">Blackjack</h2>
-      <p>Please, select your bet to start play</p>
+      <h2 class="font-bold text-2xl">{{ i18n.t('blackjack.title') }}</h2>
+      <p>{{ i18n.t('blackjack.bet') }}</p>
       <div class="flex flex-col sm:flex-row sm:gap-8">
         <button
           class="relative flex justify-center items-center w-[100px] h-[100px] text-black cursor-pointer p-0 rounded-full border-[13px] border-dashed border-black before:content-[''] before:absolute before:-z-1 before:mt-[-13px] before:mr-[-13px] before:mb-[-13px] before:ml-[-13px] before:bg-white before:rounded-full before:inset-0 after:content-[''] after:absolute after:-z-1 after:text-black after:m-[5px] after:rounded-full after:border-[5px] after:border-dashed after:border-black after:inset-0 outline-inherit bg-none my-8"
@@ -86,7 +88,7 @@ const emitBet = () => {
         <p>{{ moneyCredit }}</p>
       </div>
       <br />
-      <button class="btn" @click="emitBet">Play</button>
+      <button class="btn" @click="emitBet">{{ i18n.t('common.play') }}</button>
     </main>
   </div>
 </template>
