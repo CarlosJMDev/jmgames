@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+allow: /
+
+Sitemap: https://localhost:5173/sitemap.xml
