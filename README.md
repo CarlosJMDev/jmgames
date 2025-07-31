@@ -1,6 +1,72 @@
-# jmgames
+# JMGames
 
-This template should help get you started developing with Vue 3 in Vite.
+JMGames is a modern web-based hub featuring several classic games, built with Vue 3 and Vite. The project showcases a collection of interactive games, including Tetris, Hangman, Blackjack and Pokémon Guess, all accessible from a single responsive interface.
+
+## Project Overview
+
+JMGames provides a fun and educational environment for users to play and learn. Each game is implemented as a separate view, with shared UI components and a consistent design. The project supports both English and Spanish languages, allowing users to switch seamlessly.
+
+## Technologies Used
+
+- **Frontend:** Vue 3, Vite, TypeScript
+- **State Management:** Pinia
+- **Routing:** Vue Router
+- **Styling:** Tailwind CSS
+- **Linting/Formatting:** ESLint, Prettier
+- **Internationalization:** Custom i18n plugin (English/Spanish)
+- **API Integration:** Axios
+- **Utilities:** Underscore.js
+
+## Project Structure
+
+- `src/views/` — Game views (Tetris, Hangman, Blackjack, Pokémon)
+- `src/components/` — Reusable UI components (GameCard, LanguageSelector, PageHeader, PageFooter, etc.)
+- `src/api/` — API integrations (e.g., Pokémon, word API)
+- `src/plugins/` — Plugins (e.g., i18n for language support)
+- `src/stores/` — Pinia stores for game state
+- `src/composables/` — Custom composable functions
+- `public/` — Static assets (images, icons, game graphics)
+
+## Features
+
+- Multiple classic games in one hub
+- Language selector (English/Spanish)
+- Responsive design with Tailwind CSS
+- Game instructions and scoring
+- Modern UI/UX
+
+## How to Run
+
+Install dependencies:
+
+```sh
+pnpm install
+```
+
+Start development server:
+
+```sh
+pnpm dev
+```
+
+Build for production:
+
+```sh
+pnpm build
+```
+
+Run unit tests:
+
+```sh
+pnpm test:unit
+```
+
+Lint and format code:
+
+```sh
+pnpm lint
+pnpm format
+```
 
 ## Recommended IDE Setup
 
@@ -36,25 +102,6 @@ pnpm build
 
 ```sh
 pnpm test:unit
-```
-
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
-```sh
-# Install browsers for the first run
-npx playwright install
-
-# When testing on CI, must build the project first
-pnpm build
-
-# Runs the end-to-end tests
-pnpm test:e2e
-# Runs the tests only on Chromium
-pnpm test:e2e --project=chromium
-# Runs the tests of a specific file
-pnpm test:e2e tests/example.spec.ts
-# Runs the tests in debug mode
-pnpm test:e2e --debug
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
